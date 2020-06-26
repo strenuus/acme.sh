@@ -2132,7 +2132,7 @@ _read_conf() {
       eval "printf \"%s\" \"\$$_sdkey\""
     )"
     if _startswith "$_sdv" "${B64CONF_START}" && _endswith "$_sdv" "${B64CONF_END}"; then
-      _sdv="$(echo "$_sdv" | sed "s/${B64CONF_START}//" | sed "s/${B64CONF_END}//" | _dbase64)"
+      _sdv="$(echo "$_sdv" | sed "s/${B64CONF_START}//" | sed "s/${B64CONF_END}//" | _dbase64 multiline)"
     fi
     printf "%s" "$_sdv"
   else
